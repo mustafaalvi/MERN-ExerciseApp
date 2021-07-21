@@ -1,3 +1,5 @@
+Creating a simple exercise tracker (by following FreeCodeCamp Tutorial). Adding additional features to provide more robust user-data display. 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
