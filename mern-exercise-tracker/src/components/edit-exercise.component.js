@@ -7,7 +7,6 @@ export default class EditExercise extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangeDuration = this.onChangeDuration.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
@@ -18,7 +17,7 @@ export default class EditExercise extends Component {
       description: '',
       duration: 0,
       date: new Date(),
-      users: []
+      //users: []
     }
   }
 
@@ -35,25 +34,6 @@ export default class EditExercise extends Component {
       .catch(function (error) {
         console.log(error);
       })
-
-    axios.get('http://localhost:5000/users/')
-      .then(response => {
-        if (response.data.length > 0) {
-          this.setState({
-            users: response.data.map(user => user.username),
-          })
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-
-  }
-
-  onChangeUsername(e) {
-    this.setState({
-      username: e.target.value
-    })
   }
 
   onChangeDescription(e) {
@@ -99,20 +79,12 @@ export default class EditExercise extends Component {
       <form onSubmit={this.onSubmit}>
         <div className="form-group"> 
           <label>Username: </label>
-          <select ref="userInput"
+          <input  type="text"
               required
+              readOnly
               className="form-control"
               value={this.state.username}
-              onChange={this.onChangeUsername}>
-              {
-                this.state.users.map(function(user) {
-                  return <option 
-                    key={user}
-                    value={user}>{user}
-                    </option>;
-                })
-              }
-          </select>
+              />
         </div>
         <div className="form-group"> 
           <label>Description: </label>
