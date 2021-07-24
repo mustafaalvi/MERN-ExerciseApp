@@ -19,7 +19,7 @@ export default class UserList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/viewusers/')
+        axios.get('http://localhost:5000/users/viewusers')
             .then(response => {
                 this.setState({ users: response.data })
             })

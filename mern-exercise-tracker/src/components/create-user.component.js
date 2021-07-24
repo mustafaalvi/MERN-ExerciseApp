@@ -14,7 +14,7 @@ export default class CreateUser extends Component{
         this.state = {
             username: '',
             height: '',
-            weight: '',
+            weight: 0,
         }
     }
 

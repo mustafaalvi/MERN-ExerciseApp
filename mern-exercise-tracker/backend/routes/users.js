@@ -12,19 +12,12 @@ router.route('/add').post((req, res) => {
   const height = req.body.height;
   const weight = req.body.weight;
 
-  const newUser = new User({username});
+  const newUser = new User({username, height, weight});
 
   newUser.save()
     .then(() => res.json('User added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-/*
-router.route('/view').post((req, res) =>{
-  User.findById(req.params.id)
-      .then(exercise => res.json(exercise))
-      .catch(err => res.status(400).json('Error: ' + err));
-});
-*/
 
 module.exports = router;

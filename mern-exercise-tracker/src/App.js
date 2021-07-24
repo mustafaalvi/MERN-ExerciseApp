@@ -2,7 +2,7 @@ import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
 import {BrowserRouter as Router, Route} from "react-router-dom"; 
 //import logo from './logo.svg';
-//import './App.css';
+import "./App.css";
 
 import Navbar from "./components/navbar.component"
 import ExercisesList from "./components/exercises-list.component";
@@ -11,17 +11,18 @@ import CreateExercise from "./components/create-exercise.component.js";
 import CreateUser from "./components/create-user.component";
 import UserList from "./components/view-user.component";
 
+//can use "container" in className for Router to make contained
 function App() {
   return (
     <Router>
-      <div className="container">
+      <div className="container-lg">
       <Navbar />
       <br/>
       <Route path="/" exact component={ExercisesList} />
       <Route path="/edit/:id" component={EditExercise} />
       <Route path="/create" component={CreateExercise} />
       <Route path="/user" component={CreateUser} />
-      <Route path="/viewusers" exact component={UserList} />
+      <Route path="/viewusers" component={UserList} />
       </div>
     </Router>
   );
