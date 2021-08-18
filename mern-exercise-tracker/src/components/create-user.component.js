@@ -14,7 +14,7 @@ export default class CreateUser extends Component{
         this.state = {
             username: '',
             height: '',
-            weight: 0,
+            weight: '',
         }
     }
 
@@ -76,6 +76,7 @@ export default class CreateUser extends Component{
                     <label>Height: </label>
                     <input  type="text"
                             required
+                            placeholder="Feet'Inches''"
                             className="form-control"
                             value={this.state.height}
                             onChange={this.onChangeHeight}
@@ -83,8 +84,10 @@ export default class CreateUser extends Component{
                 </div>
                 <div className="form-group">
                     <label>Weight: </label>
-                    <input  type="text"
+                    <input  type="number"
                             required
+                            placeholder="in pounds"
+                            min="0"
                             className="form-control"
                             value={this.state.weight}
                             onChange={this.onChangeWeight}
